@@ -51,7 +51,8 @@ int main (int argc, char *argv[]) {
         
       err = send(client_fd, buf, read, 0);
         if (err < 0) on_error("Client write failed\n") else {
-            printf("SendBack %d%s", index, buf+4);
+            
+            printf("SendBack %d%s\n", index, buf+4);
         }
     }
   }
