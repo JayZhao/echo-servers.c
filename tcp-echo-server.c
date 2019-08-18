@@ -47,8 +47,12 @@ int main (int argc, char *argv[]) {
       if (!read) break; // done reading
       if (read < 0) on_error("Client read failed\n");
 
+        uint32_t index = *((uint32_t*)buf);
+        
       err = send(client_fd, buf, read, 0);
-      if (err < 0) on_error("Client write failed\n");
+        if (err < 0) on_error("Client write failed\n") else {
+            printf("SendBack %d%s", index, buf+4);
+        }
     }
   }
 
